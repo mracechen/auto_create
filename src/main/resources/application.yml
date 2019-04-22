@@ -1,0 +1,10 @@
+server:
+  port: 8999
+  servlet:
+    context-path: /chenjie
+spring:
+  datasource:
+    url: jdbc:mysql://10.235.20.184:3306/jys?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
+    username: root
+    password: aaa000000
+    driver-class-name: com.mysql.jdbc.Driver
