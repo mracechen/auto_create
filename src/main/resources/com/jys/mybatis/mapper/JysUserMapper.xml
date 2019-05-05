@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jys.user.dao.JysUserMapper">
-  <resultMap id="BaseResultMap" type="com.jys.user.model.JysUser">
-    <!--
-      WARNING - @mbg.generated
-    -->
+<mapper namespace="com.jys.mapper.JysUserMapper">
+  <resultMap id="BaseResultMap" type="com.jys.model.JysUser">
     <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="login_password" jdbcType="VARCHAR" property="loginPassword" />
@@ -24,4 +21,30 @@
     <result column="deleted" jdbcType="INTEGER" property="deleted" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
   </resultMap>
+  <select id="selectByPage" resultMap="BaseResultMap">
+
+    select * from jys_user
+  </select>
+  <insert id="insert" parameterType="com.jys.model.JysUser">
+    insert into jys_user (user_id, user_name, login_password, 
+      tran_password, uid, country_id, 
+      user_mobile, check_flag, last_ip, 
+      head_icon, credit, email, 
+      google, invitation_code, create_date, 
+      update_date, deleted, remark
+      )
+    values (#{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{loginPassword,jdbcType=VARCHAR}, 
+      #{tranPassword,jdbcType=VARCHAR}, #{uid,jdbcType=VARCHAR}, #{countryId,jdbcType=VARCHAR}, 
+      #{userMobile,jdbcType=VARCHAR}, #{checkFlag,jdbcType=INTEGER}, #{lastIp,jdbcType=VARCHAR}, 
+      #{headIcon,jdbcType=VARCHAR}, #{credit,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, 
+      #{google,jdbcType=VARCHAR}, #{invitationCode,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{updateDate,jdbcType=TIMESTAMP}, #{deleted,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select user_id, user_name, login_password, tran_password, uid, country_id, user_mobile, 
+    check_flag, last_ip, head_icon, credit, email, google, invitation_code, create_date, 
+    update_date, deleted, remark
+    from jys_user
+  </select>
 </mapper>

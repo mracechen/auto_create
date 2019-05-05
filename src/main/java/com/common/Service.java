@@ -3,6 +3,7 @@ package com.common;
 import java.io.Serializable;
 
 public interface Service<T,ID extends Serializable> {
+
     void setBaseMapper();
     int deleteByPrimaryKey(ID id);
     int insert(T record);

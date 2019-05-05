@@ -23,7 +23,7 @@ public class MybatisGenerate1 {
             List<String> warnings = new ArrayList<String>();
             boolean overwrite = true;
             ClassLoader classloader = Thread.currentThread().getContextClassLoader();
-            InputStream is = classloader.getResourceAsStream("mybatis-generator.xml");
+            InputStream is = classloader.getResourceAsStream("generatorConfig.xml");
             ConfigurationParser cp = new ConfigurationParser(warnings);
             Configuration config = cp.parseConfiguration(is);
             DefaultShellCallback callback = new DefaultShellCallback(overwrite);
@@ -42,18 +42,18 @@ public class MybatisGenerate1 {
         }
     }*/
 
-//    public static void main(String[] args) throws Exception{
-//        MybatisGenerate1 app = new MybatisGenerate1();
-//        System.out.println(app.getClass().getResource("/").getPath());
-//        app.generator();
-//        System.out.println(System.getProperty("user.dir"));
-//    }
+    public static void main(String[] args) throws Exception{
+        MybatisGenerate1 app = new MybatisGenerate1();
+        System.out.println(app.getClass().getResource("/").getPath());
+        app.generator();
+        System.out.println(System.getProperty("user.dir"));
+    }
 
     public void generator() throws Exception{
 
         List<String> warnings = new ArrayList<String>();
         boolean overwrite = true;
-        InputStream resourceAsStream = this.getClass().getClassLoader().getResourceAsStream("mybatis-generator.xml");
+        InputStream resourceAsStream = this.getClass().getClassLoader().getResourceAsStream("generatorConfig.xml");
         ConfigurationParser cp = new ConfigurationParser(warnings);
         Configuration config = cp.parseConfiguration(resourceAsStream);
         DefaultShellCallback callback = new DefaultShellCallback(overwrite);
