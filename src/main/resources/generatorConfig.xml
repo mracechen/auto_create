@@ -13,7 +13,7 @@
         </commentGenerator>
 
         <!--数据库链接地址账号密码-->
-        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver" connectionURL="jdbc:mysql://10.236.10.1:3306/kplus?serverTimezone=UTC" userId="kplus" password="Kplus.20190306">
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/kplus?serverTimezone=UTC" userId="kplus" password="Kplus.20190306">
         </jdbcConnection>
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
